@@ -27,7 +27,7 @@ def validate_phone(phone):
 
 def validate_fio(fio):
     """Проверка ФИО."""
-    if len(fio) > 50:
+    if len(fio) > 50 or not fio.replace(' ', '').isalpha():
         return False
     return True
 
@@ -46,7 +46,7 @@ def create():
     note = request.form['note']
 
     if not validate_fio(fio):
-        flash("Ошибка: ФИО должно быть не более 50 символов.")
+        flash("Ошибка: ФИО должно содержать только текстовые символы и не более 50 символов.")
         return redirect('/')
     
     if not validate_phone(phone_number):
@@ -75,7 +75,7 @@ def update(id):
         note = request.form['note']
 
         if not validate_fio(fio):
-            flash("Ошибка: ФИО должно быть не более 50 символов.")
+            flash("Ошибка: ФИО должно содержать только текстовые символы и не более 50 символов.")
             return render_template('index.html', update_id=id, update_fio=contact.fio, update_phone_number=contact.phone_number, update_note=contact.note)
         
         if not validate_phone(phone_number):
@@ -105,6 +105,7 @@ def delete(id):
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
+
 
 
 
