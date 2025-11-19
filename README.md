@@ -3,6 +3,8 @@
 Высокопроизводительный сервер сбора и обработки событий для рекламных кампаний TargetADS. Сервис принимает пиксельные и JSON‑запросы с веб-сайтов, мобильных приложений, внешних API и систем коллтрекинга, нормализует данные, обогащает информацию о user agent и геолокации, отправляет события в Kafka и синхронизирует идентификаторы пользователей через Redis.
 
 **Docker Repo**: `cr.yandex/crp8ptgf4p7fbsbn47it/eventapi:1.1.59`
+export GOPATH=/Users/mr.markov/go
+export PATH=GOPATH/bin:GOPATH/bin:GOPATH/bin:PATH
 
 ---
 
